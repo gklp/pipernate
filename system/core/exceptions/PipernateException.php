@@ -15,11 +15,8 @@ class PipernateException extends Exception {
 		print $this;
 	}
 
-	public function getPipernateException($exception){
+	public static function getPipernateException($exception){
 		$exception->getException();
 	}
-	 
-	 
 }
-
 ?>
