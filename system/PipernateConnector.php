@@ -4,7 +4,7 @@ if (!defined('ORMPATH')) {
 }
 require_once ORMPATH . 'system/PathIncluder.php';
 
-class DbService
+class PipernateConnector
 {
 
     private $database;
@@ -111,5 +111,5 @@ class DbService
     }
 
 }
-$dbservice = new DbService();
+$connector = new PipernateConnector();
 ?>
