@@ -1,8 +1,4 @@
 <?php
-if (!defined('ORMPATH')) {
-    define("ORMPATH", str_replace('system', '', dirname(__FILE__)));
-}
-require_once ORMPATH . 'system/PathIncluder.php';
 
 class Connector
 {

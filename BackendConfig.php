@@ -18,6 +18,19 @@
  *
  */
 
-define("SERVICE_PATH", 'system/Connector.php');
+//set your local variables
+//this is pipernate core path
+define("ORM_PATH", dirname(__FILE__)."/");
+
+//do not change ORM_PATH knows it.
+define("MODEL_PATH", ORM_PATH . 'models/');
+
+//do not change ORM_PATH knows it.
+define("SYSTEM_PATH", ORM_PATH .'system/');
+
+//automatic imports
+require_once SYSTEM_PATH.'Importer.php';
+
+require_once SYSTEM_PATH.'Connector.php';
 
 ?>
