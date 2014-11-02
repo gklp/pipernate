@@ -4,7 +4,7 @@ if (!defined('ORMPATH')) {
 }
 require_once ORMPATH . 'system/PathIncluder.php';
 
-class PipernateConnector
+class Connector
 {
 
     private $database;
@@ -111,5 +111,5 @@ class PipernateConnector
     }
 
 }
-$connector = new PipernateConnector();
+$connector = new Connector();
 ?>
