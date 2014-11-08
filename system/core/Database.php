@@ -8,11 +8,14 @@ class Database
     private $dataset;
     private $results;
 
-
     function __construct()
     {
-        $this->config = new Config();
-        $this->driver = new $this->config->dbDriver($this->config);
+        switch (DB_DRIVER) {
+            case Driver::MYSQL_DRIVER: $this->driver = new MySqlDriver(); break;
+            default:
+                throw new PipernateDriverException(9005);
+                break;
+        }
     }
 
     function executeQuery($query)

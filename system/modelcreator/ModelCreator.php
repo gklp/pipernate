@@ -3,7 +3,7 @@ require_once '../Importer.php';
 require_once '../../modules/String.php';
 require_once '../core/drivers/interfaces/IDriver.php';
 imports('../core/drivers');
-require_once '../Config.php';
+require_once '../../Config.php';
 require_once '../core/Database.php';
 require_once 'ModelFileBuilder.php';
 imports('../core/exceptions');

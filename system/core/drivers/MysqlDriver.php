@@ -4,16 +4,10 @@ class MySqlDriver implements IDriver
 {
 
     private $connection;
-    private $config;
-
-    public function __construct($config)
-    {
-        $this->config = $config;
-    }
 
     public function connect()
     {
-        $this->connection = @mysql_connect($this->config->dburl, $this->config->dbusername, $this->config->dbpassword);
+        $this->connection = @mysql_connect(DB_HOST, DB_USERNAME, DB_PASSWORD);
         if (!$this->connection) {
             throw new PipernateDatabaseException(9015);
         }
@@ -22,10 +16,10 @@ class MySqlDriver implements IDriver
 
     public function selectDatabase()
     {
-        if (!@mysql_select_db($this->config->dbname, $this->connection)) {
+        if (!@mysql_select_db(DB_NAME, $this->connection)) {
             throw new PipernateDatabaseException(9016);
         }
-        $this->executeQuery("SET NAMES '" . $this->config->dbCharset . "'");
+        $this->executeQuery("SET NAMES '" . DB_CHARSET . "'");
     }
 
     public function executeQuery($query)

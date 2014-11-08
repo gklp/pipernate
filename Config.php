@@ -22,6 +22,14 @@ ini_set('xdebug.var_display_max_depth', 5);
 ini_set('xdebug.var_display_max_children', 256);
 ini_set('xdebug.var_display_max_data', 1024);
 
+//connection information.
+define("DB_DRIVER", "MysqlDriver");
+define("DB_HOST", "localhost");
+define("DB_USERNAME", "root");
+define("DB_PASSWORD", "");
+define("DB_NAME", "rock_survey");
+define("DB_CHARSET", "UTF8");
+
 //set your local variables
 //this is pipernate core path
 define("ORM_PATH", dirname(__FILE__) . "/");
