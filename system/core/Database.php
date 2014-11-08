@@ -10,11 +10,12 @@ class Database
 
     function __construct()
     {
-        switch (DB_DRIVER) {
-            case Driver::MYSQL_DRIVER: $this->driver = new MySqlDriver(); break;
-            default:
+        if ($this->driver == null || !$this->driver->isAliveConnection() || DB_DRIVER != $this->driver->getDriverName()) {
+            if (Driver::MYSQL_DRIVER == DB_DRIVER) {
+                $this->driver = new MySqlDriver();
+            } else {
                 throw new PipernateDriverException(9005);
-                break;
+            }
         }
     }
 

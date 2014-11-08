@@ -5,6 +5,11 @@ class MySqlDriver implements IDriver
 
     private $connection;
 
+    public function getDriverName()
+    {
+        return Driver::MYSQL_DRIVER;
+    }
+
     public function connect()
     {
         $this->connection = @mysql_connect(DB_HOST, DB_USERNAME, DB_PASSWORD);
@@ -118,6 +123,11 @@ class MySqlDriver implements IDriver
         } catch (exception $e) {
             die("{$e->getMessage()}");
         }
+    }
+
+    public function isAliveConnection()
+    {
+        return @mysql_ping() ? 'true' : 'false';
     }
 
     public function close()

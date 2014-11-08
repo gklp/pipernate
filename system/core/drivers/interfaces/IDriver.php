@@ -2,6 +2,8 @@
 
 interface IDriver
 {
+    public function getDriverName();
+
     public function connect();
 
     public function selectDatabase();
@@ -23,6 +25,8 @@ interface IDriver
     public function getNextInsertID($table);
 
     public function getCellValue($dataset, $num, $columnName);
+
+    public function isAliveConnection();
 
     public function close();
 }
