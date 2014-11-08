@@ -10,7 +10,7 @@ class Database
 
     function __construct()
     {
-        if ($this->driver == null || !$this->driver->isAliveConnection() || DB_DRIVER != $this->driver->getDriverName()) {
+        if (self::getDriverStatus()) {
             if (Driver::MYSQL_DRIVER == DB_DRIVER) {
                 $this->driver = new MySqlDriver();
             } else {
@@ -78,6 +78,11 @@ class Database
         $resultCount = $this->driver->getResultCount($this->dataset);
         $this->driver->close();
         return $this->dataset;
+    }
+
+    function getDriverStatus()
+    {
+        return $this->driver == null || !$this->driver->isAliveConnection() || DB_DRIVER != $this->driver->getDriverName();
     }
 }
 
