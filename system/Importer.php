@@ -21,10 +21,16 @@ imports(ORM_PATH . 'system/core');
 imports(ORM_PATH . 'system');
 imports(ORM_PATH . 'system/sqlstatements');
 imports(ORM_PATH . 'system/sqlstatements/commands');
+imports(ORM_PATH . 'system/sqlstatements/commands/clauses');
 imports(ORM_PATH . 'system/sqlstatements/commands/helpers');
 imports(ORM_PATH . 'modules');
 imports(ORM_PATH . 'services');
 
+/**
+ * Import files.
+ *
+ * @param $path
+ */
 function imports($path)
 {
     foreach (glob($path . "/*.php") as $filename) {

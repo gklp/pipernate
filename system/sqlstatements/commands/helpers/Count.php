@@ -1,6 +1,20 @@
 <?php
 
-class Count
+/**
+ * Created by PhpStorm.
+ * Users: Gokalp Kuscu a.k.a gklp, Mikail Ozel a.k.a mike
+ * Date: 11/2/12
+ * Time: 4:03 PM
+ *
+ * This class generates count sql string.
+ *
+ * @version 1.4
+ * @author gklp, mike
+ * @since 1.0
+ * @category core
+ *
+ */
+class Count extends Clause
 {
 
     private $column;
@@ -29,6 +43,7 @@ class Count
         $this->column = $column;
         $this->alias = $alias;
     }
+
 }
 
 ?>

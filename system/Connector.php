@@ -42,6 +42,7 @@ class Connector
     public function select($criteria)
     {
         $selectObject = new Select($criteria);
+        echo $selectObject->getSqlQuery();
         $this->database->executeQuery($selectObject->getSqlQuery());
         return $this->transformResults($this->database->getQueryResult(), $criteria);
     }

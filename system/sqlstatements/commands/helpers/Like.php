@@ -1,6 +1,19 @@
 <?php
-
-class Like
+/**
+ * Created by PhpStorm.
+ * Users: Gokalp Kuscu a.k.a gklp, Mikail Ozel a.k.a mike
+ * Date: 11/2/12
+ * Time: 4:03 PM
+ *
+ * This class generates like sql string.
+ *
+ * @version 1.4
+ * @author gklp, mike
+ * @since 1.0
+ * @category core
+ *
+ */
+class Like extends Clause
 {
 
     private $likeBy = Array();

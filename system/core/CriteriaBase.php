@@ -3,6 +3,7 @@
 class CriteriaBase
 {
     private $model = null;
+    private $isFullyColumns = true;
     protected $returnType = ReturnType::AsModel;
 
     protected $fieldsObject;
@@ -81,6 +82,22 @@ class CriteriaBase
     public function getReturnType()
     {
         return $this->returnType;
+    }
+
+    /**
+     * @param mixed $isFullyColumns
+     */
+    public function setFullyColumns($isFullyColumns)
+    {
+        $this->isFullyColumns = $isFullyColumns;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function isFullyColumns()
+    {
+        return $this->isFullyColumns;
     }
 }
 

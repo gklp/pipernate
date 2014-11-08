@@ -1,6 +1,22 @@
 <?php
 
-class SqlCommand extends Criteria
+/**
+ * Created by PhpStorm.
+ * Users: Gokalp Kuscu a.k.a gklp, Mikail Ozel a.k.a mike
+ * Date: 11/2/12
+ * Time: 4:03 PM
+ *
+ * This class generates sql string.
+ * It will process criteria so must know CriteriaBase.
+ *
+ * @see SqlCommandUtils, CriteriaBase, String
+ * @version 1.4
+ * @author gklp, mike
+ * @since 1.0
+ * @category core
+ *
+ */
+class SqlProcessor extends CriteriaBase
 {
 
     protected $sqlQuery;
@@ -8,6 +24,11 @@ class SqlCommand extends Criteria
     protected $criteria;
     protected $utils;
 
+    /**
+     * If Connector has criteria, initialize it.
+     *
+     * @param null $criteria
+     */
     public function __construct($criteria = null)
     {
         $this->sqlQuery = new String();
@@ -15,9 +36,12 @@ class SqlCommand extends Criteria
         if ($this->criteria != null) {
             $this->model = $this->criteria->getModel();
         }
-        $this->utils = new SqlCommandUtils();
+        $this->utils = new SqlProcessorUtils();
     }
 
+    /**
+     * if has, where tail adding!
+     */
     protected function addWhereTail()
     {
         if ($this->criteria->getWhereObject() != null) {
@@ -25,6 +49,9 @@ class SqlCommand extends Criteria
         }
     }
 
+    /**
+     * if has, order tail adding!
+     */
     protected function addOrderTail()
     {
         if ($this->criteria->getOrderObject() != null) {
@@ -32,6 +59,9 @@ class SqlCommand extends Criteria
         }
     }
 
+    /**
+     *  if has, limit tail adding!
+     */
     protected function addLimitTail()
     {
         if ($this->criteria->getLimitObject() != null) {
@@ -39,25 +69,54 @@ class SqlCommand extends Criteria
         }
     }
 
+    /**
+     * if you want add to sql tail, you can add with this.
+     *
+     * @param $adding
+     */
     protected function addToQuery($adding)
     {
         $this->sqlQuery->append($adding);
     }
 
+    /**
+     * if you want add to sql tail, you can add with this.
+     *
+     * @param $adding
+     */
+    protected function addToQueryWithComma($adding)
+    {
+        $this->sqlQuery->append($adding . ",");
+    }
+
+    /**
+     * Last Query
+     *
+     * @return String
+     */
     public function getSqlQuery()
     {
         return $this->sqlQuery;
     }
 
+    /**
+     * if not null, return model.
+     *
+     * @return mixed
+     */
     public function getModel()
     {
         return $this->model;
     }
 
+    /**
+     * if not null, return model.
+     *
+     * @return mixed
+     */
     public function getCriteria()
     {
         return $this->criteria;
     }
 }
-
 ?>
