@@ -22,7 +22,11 @@ class PipernateIllegalArgumentException extends PipernateException
         9013 => "In missing parameter exception,it gives two param, these parameters
  		 are columnName and inParameters, these parameters not found",
         9014 => "Like missing parameter exception,it gives two param, these parameters
- 		 are columnName and likeParameter, these parameters not found"
+ 		 are columnName and likeParameter, these parameters not found",
+        9015 => "Max missing parameter exception,it gives two param, these parameters
+ 		 are column and alias, alias default value 'null', probably column not found.",
+        9016 => "Min missing parameter exception,it gives two param, these parameters
+ 		 are column and alias, alias default value 'null', probably column not found."
     );
 
     public function __construct($errorCode = 9000)

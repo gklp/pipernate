@@ -56,6 +56,14 @@ class Select extends SqlProcessor
             $this->addToQueryWithComma($this->criteria->getSumObject()->getSumString());
         }
 
+        if ($this->criteria->getMaxObject() != null) {
+            $this->addToQueryWithComma($this->criteria->getMaxObject()->getMaxString());
+        }
+
+        if ($this->criteria->getMinObject() != null) {
+            $this->addToQueryWithComma($this->criteria->getMinObject()->getMinString());
+        }
+
         if ($this->getSqlQuery()->endsWith(",")) {
             $this->getSqlQuery()->trimRight(1);
         }

@@ -3,12 +3,14 @@
 class CriteriaBase
 {
     private $model = null;
-    private $isFullyColumns = true;
+    private $isFullyColumns = false;
     protected $returnType = ReturnType::AsModel;
 
     protected $fieldsObject;
     protected $distinctObject;
     protected $countObject;
+    protected $maxObject;
+    protected $minObject;
     protected $sumObject;
     protected $whereObject;
     protected $limitObject;
@@ -62,6 +64,16 @@ class CriteriaBase
     protected function getCountObject()
     {
         return $this->countObject;
+    }
+
+    protected function getMaxObject()
+    {
+        return $this->maxObject;
+    }
+
+    protected function getMinObject()
+    {
+        return $this->minObject;
     }
 
     protected function getSumObject()

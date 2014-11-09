@@ -1,6 +1,6 @@
 <?php
 
-class ReturnType
+abstract class ReturnType
 {
     const AsNone = 0; //binding to unknown model
     const AsModel = 1; //binding to known model

@@ -127,6 +127,44 @@ class Criteria extends CriteriaBase
     }
 
     /**
+     * Max clause statement
+     *
+     * @param $column
+     * @param null $alias
+     * @throws PipernateIllegalArgumentException
+     */
+    public function max($column, $alias = null)
+    {
+        if (empty($column)) {
+            throw new PipernateIllegalArgumentException(9015);
+        } else {
+            if ($this->maxObject == null) {
+                $this->maxObject = new Max();
+            }
+            $this->maxObject->addMaxClause($column, $alias);
+        }
+    }
+
+    /**
+     * Min clause statement
+     *
+     * @param $column
+     * @param null $alias
+     * @throws PipernateIllegalArgumentException
+     */
+    public function min($column, $alias = null)
+    {
+        if (empty($column)) {
+            throw new PipernateIllegalArgumentException(9016);
+        } else {
+            if ($this->minObject == null) {
+                $this->minObject = new Min();
+            }
+            $this->minObject->addMinClause($column, $alias);
+        }
+    }
+
+    /**
      * Sum clause statement
      *
      * @param $column
