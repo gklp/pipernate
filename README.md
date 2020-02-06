@@ -18,5 +18,5 @@ To contribute, you must fork master branch. Then you can commit to this branch. 
 Commiters of v2
 ===============
 
-Gökalp Kuşçu(gklp)
-Mikail Özel(mike)
+Gökalp Kuşçu
+Mikail Özel
